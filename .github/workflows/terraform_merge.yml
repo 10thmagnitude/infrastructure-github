@@ -1,0 +1,20 @@
+name: "Terraform GitHub Actions"
+on:
+  push:
+    branches:
+      - master
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+      - name: "Terraform Apply"
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: latest
+          tf_actions_subcommand: "apply"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TF_VAR_token: ${{ secrets.GITHUB_TOKEN }}
