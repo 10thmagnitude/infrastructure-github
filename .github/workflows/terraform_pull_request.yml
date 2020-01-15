@@ -20,6 +20,7 @@ jobs:
         with:
           tf_actions_version: latest
           tf_actions_subcommand: 'init'
+          args: '-backend-config=storage_account_name=10thtfstate -backend-config=container_name=tfstate -backend-config=key=github.terraform.tfstate'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Terraform Validate'
