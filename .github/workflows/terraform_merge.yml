@@ -5,16 +5,16 @@ on:
       - master
 jobs:
   terraform:
-    name: "Terraform"
+    name: Terraform
     runs-on: ubuntu-latest
     steps:
-      - name: "Checkout"
+      - name: Checkout
         uses: actions/checkout@master
-      - name: "Terraform Apply"
+      - name: Terraform Apply
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: latest
-          tf_actions_subcommand: "apply"
+          tf_actions_subcommand: apply
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
